@@ -112,4 +112,4 @@ $prod_database = array(
 );
 
 $active_group = 'default';
-$db['default'] = $prod_database;
+$db['default'] = $dev_database;

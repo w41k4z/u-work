@@ -25,7 +25,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 */
 $dev_base_url = 'http://localhost:80/u-work/';
 $prod_base_url = 'http://u-work.alwaysdata.net/';
-$config['base_url'] = $prod_base_url;
+$config['base_url'] = $dev_base_url;
 
 /*
 |--------------------------------------------------------------------------

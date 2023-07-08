@@ -24,4 +24,12 @@ class IndexController extends CI_Controller
 		$this->session->set_userdata('session', 'Sessions are working');
 		$this->load->view('home_page');
 	}
+
+	public function test()
+	{
+		$data = array();
+		$data['session'] = $this->session->userdata('session');
+		$data['students'] = $this->db->query('SELECT * FROM etudiant')->result_array();
+		$this->load->view('test/test_page', $data);
+	}
 }

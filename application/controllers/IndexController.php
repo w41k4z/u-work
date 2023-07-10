@@ -29,7 +29,7 @@ class IndexController extends CI_Controller
 	{
 		$data = array();
 		$data['session'] = $this->session->userdata('session');
-		$data['students'] = $this->db->query('SELECT * FROM etudiant')->result_array();
+		$data['students'] = $this->db->query('SELECT * FROM test')->result_array();
 		$this->load->view('test/test_page', $data);
 	}
 }

@@ -12,7 +12,7 @@
     <h1 class="text-success"><?= $session ?></h1>
     <ul>
         <?php for ($i = 0; $i < count($students); $i++) { ?>
-        <li><?= $students[$i]['name']; ?></li>
+            <li><?= $students[$i]['user_name']; ?></li>
         <?php } ?>
     </ul>
 </body>

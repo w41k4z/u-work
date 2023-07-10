@@ -8,6 +8,7 @@
 
 system/
 Template/
+time-Sheet/
 
 #codeigniter 3
 application/logs/*

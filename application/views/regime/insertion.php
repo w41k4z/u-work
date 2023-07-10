@@ -38,10 +38,10 @@
                 <div class="card mt-4">
                     <div class="card-body">
                         <h4 class="card-title">Insertion Régime</h4>
-                        <form class="forms-sample">
+                        <form class="forms-sample" action="<?php echo base_url('index.php/DietController/testInsert') ?>" method="POST">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Choix Régime</label>
-                                <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+                                <select class="form-control form-control-lg" id="exampleFormControlSelect1" name="option">
                                     <option>1</option>
                                     <option>2</option>
                                 </select>
@@ -49,21 +49,21 @@
                             <div class="form-group row">
                                 <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Prix</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="exampleInputEmail2"
+                                    <input type="number" class="form-control" id="exampleInputEmail2" name="prix" 
                                         placeholder="Prix du Régime par jour">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="exampleInputMobile" class="col-sm-3 col-form-label">Durée</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="exampleInputMobile"
+                                    <input type="number" class="form-control" id="exampleInputMobile" name="duree" 
                                         placeholder="Durée du régime">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Poid</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control" id="exampleInputPassword2"
+                                    <input type="number" class="form-control" id="exampleInputPassword2" name="poids" 
                                         placeholder="Poid à perdre">
                                 </div>
                             </div>

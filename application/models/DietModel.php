@@ -7,7 +7,7 @@ class DietModel extends CI_Model
     {
         $data = array();
         $data['nom'] = $name;
-        $data['nombre_repas'] = $frequency;
+        $data['nombrerepas'] = $frequency;
         $this->db->insert('regime', $data);
         return $this->db->insert_id();
     }
@@ -16,14 +16,14 @@ class DietModel extends CI_Model
     {
         $diet = $this->db->get_where('regime', array('idregime' => $diet_id))->row;
         $composant = $this->db->get_where('composant', array('idcomposant' => $composant_id))->row;
-        if (!$diet || !$composant) {
-            throw new Exception('The diet or component you are referencing does not exist');
-        }
+        // if (!$diet || !$composant) {
+        //     throw new Exception('The diet or component you are referencing does not exist');
+        // }
 
         $data = array();
         $data['idregime'] = $diet_id;
         $data['idcomposant'] = $composant_id;
-        $this->db->insert('detailregime', $data);
+        $this->db->insert('detail_regime', $data);
         return $this->db->insert_id();
     }
 
@@ -33,7 +33,6 @@ class DietModel extends CI_Model
         if (!$diet) {
             throw new Exception('The diet you are referencing does not exist');
         }
-
         $data = array();
         $data['idregime'] = $diet_id;
         $data['prix'] = $daily_price;

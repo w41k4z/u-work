@@ -17,21 +17,23 @@ class DietController extends CI_Controller
         );
         $this->load->view('template/BasePage', $data);
     }
+    public function index(){
+        
+        $this->viewer('regime/insertion',[]);
+    }
 
     public function new_diet()
     {
-        $diet_name = $this->input->post('nom');
-        $frequency = $this->input->post('nombre_repas');
+        $diet_name = $this->input->post('regime');
+        $frequency = $this->input->post('repas');
         // creating new diet
         $diet_id = $this->DietModel->new_diet($diet_name, $frequency);
-
         // inserting diet details
-        $components = $this->input->post('composants');
-        foreach ($components as $component) {
-            $this->DietModel->new_diet_detail($diet_id, $component);
+        $components = $this->input->POST('composants');
+        $components = json_decode(str_replace("'", "", $components));
+        for($i = 0; $i < count($components); $i++) {
+            $this->DietModel->new_diet_detail($diet_id, $components[$i]);
         }
-
-        // loading view or redirecting
     }
 
     public function new_diet_princing()

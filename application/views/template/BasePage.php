@@ -1,4 +1,4 @@
-<?php 
+    <?php 
 
     $this->load->view('template/Header');
 

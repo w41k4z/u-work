@@ -35,11 +35,12 @@ class DietController extends CI_Controller
         // creating new diet
         $diet_id = $this->DietModel->new_diet($diet_name, $categorie,$duree,$debut,$fin,$prix);
         // inserting diet details
+        // var_dump($diet_id);
         $components = $this->input->post('regimeDetail');
         $components = json_decode(str_replace("'", "", $components));
-        // ($diet_id, $jour,$id_plat_matin,$id_plat_midi,$id_plat_soir,$id_entrainement)
         for($i = 0; $i < count($components); $i++) {
-            $this->DietModel->new_diet_detail($diet_id, $components[$i]['jour'],$components[$i]['matin'],$components[$i]['midi'],$components[$i]['soir'],$components[$i]['activites']);
+            // var_dump($components[$i]);
+            $this->DietModel->new_diet_detail($diet_id, $components[$i]->jour,$components[$i]->matin,$components[$i]->midi,$components[$i]->soir,$components[$i]->activites);
         }
     }
 

@@ -151,13 +151,28 @@
         for (const pair of formData) {
             data.append(pair[0], pair[1]);
         }
-        fetch("<?= base_url('index.php/DietController/new_diet') ?>", { 
-            method: 'POST',
-            body: data 
-        }).then(() => {
-            alert("lasa e");
-        }).catch(error => {
-            alert(error)
-        })
+
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = ()=>{
+
+            if( xhr.readyState === 4 ){
+                if( xhr.status === 200 ){
+                    console_log("hehe boyyy");
+                }
+            }
+
+        };
+        
+        xhr.open('POST', "<?php echo base_url('index.php/DietController/new_diet') ?>");
+        xhr.send(formData);
+        // fetch(, { 
+        //     method: 'POST',
+        //     body: data 
+        // }).then(() => {
+        //     alert("lasa e");
+        // }).catch(error => {
+        //     alert(error)
+        // })
     }
 </script>

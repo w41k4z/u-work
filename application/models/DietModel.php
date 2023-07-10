@@ -25,6 +25,7 @@ class DietModel extends CI_Model
     {
         /* id | nom | id_categorie | duree | de | a | prix */
         $data = array();
+        // $data['id'] = nul;
         $data['nom'] = $name;
         $data['id_categorie'] = $categorie;
         $data['duree'] = $duree;
@@ -37,7 +38,7 @@ class DietModel extends CI_Model
     public function new_diet_detail($diet_id, $jour,$id_plat_matin,$id_plat_midi,$id_plat_soir,$id_entrainement)
     {
         $data = array();
-        $data['idregime'] = $diet_id;
+        $data['id_regime'] = $diet_id;
         $data['jour'] = $jour;
         $data['id_plat_matin'] = $id_plat_matin;
         $data['id_plat_midi'] = $id_plat_midi;

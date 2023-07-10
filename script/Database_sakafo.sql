@@ -13,7 +13,8 @@ CREATE TABLE activite_entrainement (
     id_entrainement INT REFERENCES entrainement(id) NOT NULL,
     id_activite INT REFERENCES activite(id) NOT NULL,
     quantite INT NOT NULL, -- ex: pompe x30
-    CHECK(quantite > 0)
+    CHECK(quantite > 0),
+    UNIQUE(id_entrainement, id_activite)
 );
 
 CREATE TABLE categorie_regime (
@@ -43,7 +44,7 @@ CREATE TABLE plat (
 
 CREATE TABLE detail_regime (
     id SERIAL PRIMARY KEY,
-    id_regime   int  REFERENCES regime (id) not null,
+    id_regime INT REFERENCES regime(id) NOT NULL,
     jour INT NOT NULL, -- ex: Jour 1
     id_plat_matin INT REFERENCES plat(id) NOT NULL,
     id_plat_midi INT REFERENCES plat(id) NOT NULL,

@@ -17,9 +17,10 @@ class DietController extends CI_Controller
         );
         $this->load->view('template/BasePage', $data);
     }
-    public function index(){
-        
-        $this->viewer('regime/insertion',[]);
+    public function index()
+    {
+
+        $this->viewer('regime/insertion', []);
     }
 
     public function new_diet()

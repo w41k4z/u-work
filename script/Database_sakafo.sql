@@ -1,6 +1,8 @@
 CREATE TABLE Regime(
 	idRegime PRIMARY KEY SERIALE,
-	nom VARCHAR(15) NOT NULL
+    nombreRepas int,
+	nom VARCHAR(15) NOT NULL,
+    check(nombreRepas>0)
 );
 
 CREATE TABLE Composant(
@@ -14,15 +16,6 @@ CREATE TABLE DetailRegime(
     idRegime int,
     foreign key (idComposant) references Composant(idComposant),
     foreign key (idRegime) references Regime(idRegime)
-);
-
-CREATE TABLE Detail(
-    idRegime int,
-    idDetailRegime int,
-    idComposant int,
-    foreign key (idRegime) references Regime(idRegime)
-    foreign key (idDetailRegime) references DetailRegime(idDetailRegime),
-    foreign key (idComposant) references Composant(idComposant),
 );
 
 CREATE TABLE Tarification(

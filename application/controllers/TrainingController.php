@@ -18,11 +18,11 @@ class TrainingController extends CI_Controller
 		$this->load->view('template/BasePage', $data);
 	}
 
-	public function index()
+	public function page($page)
 	{
 		$data = array();
 		$data['activities'] = $this->TrainingModel->activities();
-		$this->viewer('activite/insertion', $data);
+		$this->viewer('activite/' . $page, $data);
 	}
 
 	public function new_activity()

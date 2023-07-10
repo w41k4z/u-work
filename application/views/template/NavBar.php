@@ -3,8 +3,7 @@
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo" /></a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo" /></a>
-        <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex" type="button"
-            data-toggle="minimize">
+        <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex" type="button" data-toggle="minimize">
             <span class="typcn typcn-th-menu"></span>
         </button>
     </div>
@@ -33,13 +32,11 @@
                 </a>
             </li>
             <li class="nav-item dropdown d-flex">
-                <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
-                    id="messageDropdown" href="#" data-toggle="dropdown">
+                <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
                     <i class="typcn typcn-message-typing"></i>
                     <span class="count bg-success">2</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                    aria-labelledby="messageDropdown">
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
                     <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
                     <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
@@ -80,13 +77,11 @@
                 </div>
             </li>
             <li class="nav-item dropdown  d-flex">
-                <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center"
-                    id="notificationDropdown" href="#" data-toggle="dropdown">
+                <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
                     <i class="typcn typcn-bell mr-0"></i>
                     <span class="count bg-danger">2</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                    aria-labelledby="notificationDropdown">
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                     <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
                     <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
@@ -146,8 +141,7 @@
                 </div>
             </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-            data-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
             <span class="typcn typcn-th-menu"></span>
         </button>
     </div>
@@ -174,8 +168,7 @@
                 </div>
                 <div class="nav-search">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Type to search..." aria-label="search"
-                            aria-describedby="search">
+                        <input type="text" class="form-control" placeholder="Type to search..." aria-label="search" aria-describedby="search">
                         <div class="input-group-append">
                             <span class="input-group-text" id="search">
                                 <i class="typcn typcn-zoom"></i>
@@ -186,31 +179,32 @@
                 <p class="sidebar-menu-title">Dash menu</p>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<?= base_url("index.php/IndexController") ?>">
                     <i class="typcn typcn-device-desktop menu-icon"></i>
                     <span class="menu-title">Dashboard <span class="badge badge-primary ml-3">New</span></span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                    aria-controls="ui-basic">
+                <a class="nav-link" href="<?= base_url("index.php/DietController") ?>">
+                    <i class="typcn typcn-device-desktop menu-icon"></i>
+                    <span class="menu-title">Regime <span class="badge badge-primary ml-3">New</span></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                     <i class="typcn typcn-briefcase menu-icon"></i>
-                    <span class="menu-title">UI Elements</span>
+                    <span class="menu-title">Activite</span>
                     <i class="typcn typcn-chevron-right menu-arrow"></i>
                 </a>
                 <div class="collapse" id="ui-basic">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a>
+                        <li class="nav-item"> <a class="nav-link" href="<?= base_url("index.php/TrainingController/page/training") ?>">Entrainement</a>
                         </li>
-                        <li class="nav-item"> <a class="nav-link"
-                                href="pages/ui-features/typography.html">Typography</a></li>
                     </ul>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
-                    aria-controls="form-elements">
+                <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
                     <i class="typcn typcn-film menu-icon"></i>
                     <span class="menu-title">Form elements</span>
                     <i class="menu-arrow"></i>

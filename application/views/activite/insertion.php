@@ -4,7 +4,7 @@
             <div class="col-md-6 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Insertion activite</h4>
+                        <h4 class="card-title">Nouvelle activite</h4>
                         <p class="card-description"></p>
                         <form class="forms-sample">
                             <div class="card-body">

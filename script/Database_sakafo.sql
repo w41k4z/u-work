@@ -1,14 +1,19 @@
 CREATE TABLE activite (
     id SERIAL PRIMARY KEY,
-    niveau INT NOT NULL, -- < 5 facile, < 10 moyen, < 20 difficile
-    CHECK(niveau > 0)
+    nom VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE detail_activite (
+CREATE TABLE entrainement (
     id SERIAL PRIMARY KEY,
-    id_activite INT REFERENCES activite(id) NOT NULL, 
-    activite VARCHAR(30) NOT NULL, -- ex: Pompe 5
-    UNIQUE(id_activite, activite)
+    niveau INT NOT NULL -- 0 facile, 5 moyen, 10 difficile
+);
+
+CREATE TABLE activite_entrainement (
+    id SERIAL PRIMARY KEY,
+    id_entrainement INT REFERENCES entrainement(id) NOT NULL,
+    id_activite INT REFERENCES activite(id) NOT NULL,
+    quantite INT NOT NULL, -- ex: pompe x30
+    CHECK(quantite > 0)
 );
 
 CREATE TABLE categorie_regime (
@@ -42,5 +47,5 @@ CREATE TABLE detail_regime (
     id_plat_matin INT REFERENCES plat(id) NOT NULL,
     id_plat_midi INT REFERENCES plat(id) NOT NULL,
     id_plat_soir INT REFERENCES plat(id) NOT NULL,
-    id_activite INT REFERENCES activite(id) NOT NULL
+    id_entrainement INT REFERENCES entrainement(id) NOT NULL
 );

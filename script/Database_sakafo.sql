@@ -19,7 +19,7 @@ CREATE TABLE DetailRegime(
 );
 
 CREATE TABLE Tarification(
-    idRegime int SERIAL PRIMARY KEY,
+    idRegime SERIAL PRIMARY KEY,
     prix double precision,
     dure int,
     poids double precision,
@@ -27,7 +27,13 @@ CREATE TABLE Tarification(
 );
 
 CREATE table Code(
-    idCode      int PRIMARY key,
-    etat        int,
+    idCode SERIAL PRIMARY key,
+    etat int,
     check(etat > 0)
+);
+
+CREATE TABLE pending_code_validation (
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES user_account(id),
+    id_code INT REFERENCES code(idcode)
 );

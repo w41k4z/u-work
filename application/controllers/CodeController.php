@@ -18,7 +18,15 @@ class CodeController extends CI_Controller
         $this->load->view('template/BasePage', $data);
     }
 
-    public function validation(){
+    public function index()
+    {
+        $data = array();
+        $data['pending_validations'] = $this->CodeModel->pending_validation();
+        $this->viewer('validation/verification', $data);
+    }
+
+    public function validation()
+    {
         $code = $this->input->post('code');
         // Check if code is valide
         $valide = $this->CodeModel->code_valide($code);

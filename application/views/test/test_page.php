@@ -9,11 +9,17 @@
 </head>
 
 <body>
-    <h1 class="text-success"><?= $session ?></h1>
+    <!-- <h1 class="text-success">< ?= $session ?></h1> -->
+    <!-- <ul>
+        < ?php for ($i = 0; $i < count($students); $i++) { ?>
+            <li>< ?= $students[$i]['user_name']; ?></li>
+        < ?php } ?>
+    </ul> -->
     <ul>
-        <?php for ($i = 0; $i < count($students); $i++) { ?>
-            <li><?= $students[$i]['user_name']; ?></li>
-        <?php } ?>
+        <li><?php echo $choix ?></li>
+        <li><?php echo $cout ?></li>
+        <li><?php echo $temps ?></li>
+        <li><?php echo $poid ?></li>
     </ul>
 </body>
 

@@ -13,7 +13,8 @@ CREATE TABLE activite_entrainement (
     id_entrainement INT REFERENCES entrainement(id) NOT NULL,
     id_activite INT REFERENCES activite(id) NOT NULL,
     quantite INT NOT NULL, -- ex: pompe x30
-    CHECK(quantite > 0)
+    CHECK(quantite > 0),
+    UNIQUE(id_entrainement, id_activite)
 );
 
 CREATE TABLE categorie_regime (

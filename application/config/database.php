@@ -71,9 +71,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $dev_database = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'walker',
-	'password' => 'w41k4z!',
-	'database' => 'test',
+	'username' => 'rezime',
+	'password' => 'sakafo1234!',
+	'database' => 'rezime',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

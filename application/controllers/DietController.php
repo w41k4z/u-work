@@ -3,11 +3,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class DietController extends CI_Controller
 {
-    // public function __construct()
-    // {
-    //     parent::__construct();
-    //     $this->load->model('DietModel');
-    // }
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('DietModel');
+    }
 
     private function viewer($page, $data)
     {
@@ -29,7 +29,7 @@ class DietController extends CI_Controller
         // creating new diet
         $diet_id = $this->DietModel->new_diet($diet_name, $frequency);
         // inserting diet details
-        $components = $this->input->POST('composants');
+        $components = $this->input->post('composants');
         $components = json_decode(str_replace("'", "", $components));
         for($i = 0; $i < count($components); $i++) {
             $this->DietModel->new_diet_detail($diet_id, $components[$i]);

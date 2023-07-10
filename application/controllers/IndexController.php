@@ -14,6 +14,6 @@ class IndexController extends CI_Controller
 
 	public function index()
 	{
-		$this->viewer('dashboard', []);
+		$this->viewer('activite/insertion', []);
 	}
 }

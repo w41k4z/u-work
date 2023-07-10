@@ -12,21 +12,23 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Choix Régime</label>
-                                    <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+                                    <select class="form-control form-control-lg" id="exampleFormControlSelect1"
+                                        required>
                                         <option>1</option>
                                         <option>2</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect2">Nombre de Repas</label>
-                                    <select class="form-control" id="exampleFormControlSelect2">
+                                    <select class="form-control" id="exampleFormControlSelect2" required>
                                         <option>1</option>
                                         <option>2</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect3">Choix Composant </label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect3">
+                                    <select class="form-control form-control-sm" id="exampleFormControlSelect3"
+                                        required>
                                         <option>1</option>
                                         <option>2</option>
                                     </select>
@@ -73,7 +75,7 @@
                         <form class="forms-sample">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Choix Régime</label>
-                                <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+                                <select class="form-control form-control-lg" id="exampleFormControlSelect1" required>
                                     <option>1</option>
                                     <option>2</option>
                                 </select>
@@ -82,21 +84,21 @@
                                 <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Prix</label>
                                 <div class="col-sm-9">
                                     <input type="number" class="form-control" id="exampleInputEmail2"
-                                        placeholder="Prix du Régime par jour">
+                                        placeholder="Prix du Régime par jour" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="exampleInputMobile" class="col-sm-3 col-form-label">Durée</label>
                                 <div class="col-sm-9">
                                     <input type="number" class="form-control" id="exampleInputMobile"
-                                        placeholder="Durée du régime">
+                                        placeholder="Durée du régime" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Poid</label>
                                 <div class="col-sm-9">
                                     <input type="number" class="form-control" id="exampleInputPassword2"
-                                        placeholder="Poid à perdre">
+                                        placeholder="Poid à perdre" required>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary mr-2">Valider</button>

@@ -3,17 +3,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class IndexController extends CI_Controller
 {
-	public function index()
+	private function viewer($page, $data)
 	{
-		$this->session->set_userdata('session', 'Sessions are working');
-		$this->load->view('home_page');
+		$data = array(
+			'page' => $page,
+			'data' => $data
+		);
+		$this->load->view('template/BasePage', $data);
 	}
 
-	public function test()
+	public function index()
 	{
-		$data = array();
-		$data['session'] = $this->session->userdata('session');
-		$data['students'] = $this->db->query('SELECT * FROM test')->result_array();
-		$this->load->view('test/test_page', $data);
+		$this->viewer('dashboard', []);
 	}
 }

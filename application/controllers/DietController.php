@@ -9,6 +9,15 @@ class DietController extends CI_Controller
         $this->load->model('DietModel');
     }
 
+    private function viewer($page, $data)
+    {
+        $data = array(
+            'page' => $page,
+            'data' => $data
+        );
+        $this->load->view('template/BasePage', $data);
+    }
+
     public function new_diet()
     {
         $diet_name = $this->input->post('nom');

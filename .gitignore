@@ -7,6 +7,7 @@
 !*/cache/.htaccess
 
 system/
+Template/
 
 #codeigniter 3
 application/logs/*

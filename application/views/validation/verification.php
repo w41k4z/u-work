@@ -35,11 +35,11 @@
 										<tbody>
 											<tr>
 											<td>Jacob</td>
-											<td>
-												<select name="code" id="">
-												<option value="code1">214451001</option>
-												<option value="code1">447502021</option>
-												<option value="code1">787753601</option>
+											<td class="form-group">
+												<select class="form-control">
+												<option>214451001</option>
+												<option>447502021</option>
+												<option>787753601</option>
 												</select>
 											</td>
 											<td><label class="badge badge-danger"><a href="#">Valider</a></label></td>

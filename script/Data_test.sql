@@ -1,1 +1,1 @@
-Insert into composant values (default,'Ovy'),(default,'Karoty');
+Insert into categorie_regime values (default,'Basique'),(default,'Dinamique');

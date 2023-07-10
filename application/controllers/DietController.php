@@ -25,14 +25,20 @@ class DietController extends CI_Controller
     public function new_diet()
     {
         $diet_name = $this->input->post('regime');
-        $frequency = $this->input->post('repas');
+        $categorie = $this->input->post('type');
+        $prix = $this->input->post('prix');
+        $debut = $this->input->post('debut');
+        $fin = $this->input->post('fin');
+        $duree = $this->input->post('duree');
+
         // creating new diet
-        $diet_id = $this->DietModel->new_diet($diet_name, $frequency);
+        $diet_id = $this->DietModel->new_diet($diet_name, $categorie,$duree,$debut,$fin,$prix);
         // inserting diet details
-        $components = $this->input->post('composants');
+        $components = $this->input->post('regimeDetail');
         $components = json_decode(str_replace("'", "", $components));
+        // ($diet_id, $jour,$id_plat_matin,$id_plat_midi,$id_plat_soir,$id_entrainement)
         for($i = 0; $i < count($components); $i++) {
-            $this->DietModel->new_diet_detail($diet_id, $components[$i]);
+            $this->DietModel->new_diet_detail($diet_id, $components[$i]['jour'],$components[$i]['matin'],$components[$i]['midi'],$components[$i]['soir'],$components[$i]['activites']);
         }
     }
 

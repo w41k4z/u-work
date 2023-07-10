@@ -14,19 +14,30 @@
                                     <label for="exampleFormControlSelect2">Intervalle de Poids </label>
                                     <div class="row">
                                         <div class="col-md-4 grid-margin">
-                                            <input type="number" name="regime" class="form-control" id="exampleInputPassword2" placeholder="Debut poids">
+                                            <input type="number" name="debut" class="form-control" id="exampleInputPassword2" placeholder="Debut poids">
                                         </div>
                                         <div class="col-md-4 grid-margin">
-                                            <input type="number" name="regime" class="form-control" id="exampleInputPassword2" placeholder="Fin Poids">
+                                            <input type="number" name="fin" class="form-control" id="exampleInputPassword2" placeholder="Fin Poids">
                                         </div>
                                     </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect2">Prix</label>
-                                    <input type="text" name="regime" class="form-control" id="exampleInputPassword2" placeholder="Insérer Prix">
+                                    <input type="text" name="prix" class="form-control" id="exampleInputPassword2" placeholder="Insérer Prix">
+                                </div>
+                                <div class="form-group" id="detail">
+                                    <label for="exampleFormControlSelect3">Type</label>
+                                    <select class="form-control form-control-sm" id="type" name="type">
+                                        <option value="1">Dinamique</option>
+                                        <option value="2">Basique</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Duree</label>
+                                    <input type="text" name="duree" class="form-control" id="exampleInputPassword2" placeholder="Insérer duree">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect2">Jour</label>
-                                    <input type="text" name="regime" class="form-control" id="jour" placeholder="Insérer régime">
+                                    <input type="text" class="form-control" id="jour" placeholder="Insérer régime">
                                 </div>
                                 <label for="exampleFormControlSelect3">Insertion Repas</label>
                                 <div class="row">
@@ -58,13 +69,6 @@
                                         <option value="1">Difficile</option>
                                         <option value="2">Moyen</option>
                                         <option value="2">Facile</option>
-                                    </select>
-                                </div>
-                                <div class="form-group" id="detail">
-                                    <label for="exampleFormControlSelect3">Type</label>
-                                    <select class="form-control form-control-sm" id="type">
-                                        <option value="1">Dinamique</option>
-                                        <option value="2">Basique</option>
                                     </select>
                                 </div>
                             </div>
@@ -102,10 +106,9 @@
     </div>
 </div>
 <script>
-    var composant=[];
+    var regimeDetail=[]; 
     function addDetail() {
         let jour = document.getElementById("jour");
-        let type = document.getElementById("type");
         let activites = document.getElementById("activites");
         let soir = document.getElementById("soir");
         let midi = document.getElementById("midi");
@@ -119,26 +122,32 @@
         let td5 = document.createElement("td");
         let td6 = document.createElement("td");
         td1.innerText = jour.value;
-        td6.innerText = type.options[type.selectedIndex].innerText;
         td5.innerText = activites.options[activites.selectedIndex].innerText;
         td4.innerText = soir.options[soir.selectedIndex].innerText;
         td3.innerText = midi.options[midi.selectedIndex].innerText;
         td2.innerText = matin.options[matin.selectedIndex].innerText;
-        // composant.push(select.value);
+        let object ={
+            'jour': jour.value,
+            'activites': activites.value,
+            'soir':soir.value,
+            'midi':midi.value,
+            'matin':matin.value
+        }
+        regimeDetail.push(object);
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
         tr.appendChild(td4);
         tr.appendChild(td5);
-        tr.appendChild(td6);
         tbody.appendChild(tr);
     }
     function terminerDetail() {
-        let compo = JSON.stringify(composant);
+        console.log("ato za");
+        let regime = JSON.stringify(regimeDetail);
         let htmlForm = document.getElementById("formulaire");
         const data = new URLSearchParams();
         let formData = new FormData(htmlForm)
-        formData.append('composants', compo)
+        formData.append('regimeDetail', regime)
         for (const pair of formData) {
             data.append(pair[0], pair[1]);
         }

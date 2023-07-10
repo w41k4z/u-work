@@ -43,6 +43,7 @@ CREATE TABLE plat (
 
 CREATE TABLE detail_regime (
     id SERIAL PRIMARY KEY,
+    id_regime   int  REFERENCES regime (id) not null,
     jour INT NOT NULL, -- ex: Jour 1
     id_plat_matin INT REFERENCES plat(id) NOT NULL,
     id_plat_midi INT REFERENCES plat(id) NOT NULL,

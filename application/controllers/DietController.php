@@ -17,9 +17,10 @@ class DietController extends CI_Controller
         );
         $this->load->view('template/BasePage', $data);
     }
-    public function index(){
-        
-        $this->viewer('regime/insertion',[]);
+    public function index()
+    {
+
+        $this->viewer('regime/insertion', []);
     }
 
     public function new_diet()
@@ -29,9 +30,9 @@ class DietController extends CI_Controller
         // creating new diet
         $diet_id = $this->DietModel->new_diet($diet_name, $frequency);
         // inserting diet details
-        $components = $this->input->POST('composants');
+        $components = $this->input->post('composants');
         $components = json_decode(str_replace("'", "", $components));
-        for($i = 0; $i < count($components); $i++) {
+        for ($i = 0; $i < count($components); $i++) {
             $this->DietModel->new_diet_detail($diet_id, $components[$i]);
         }
     }

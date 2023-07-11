@@ -62,7 +62,12 @@ CREATE TABLE user_account (
     email VARCHAR(75) NOT NULL UNIQUE
 );
 
-CREATE TABLE user_about ();
+CREATE TABLE user_about (
+    id  SERIAL PRIMARY KEY,
+    id_User     int REFERENCES user_account(id),
+    taille      double precision,
+    poid        double precision
+);
 
 -- money flow (in/out)
 CREATE TABLE user_income_flow (

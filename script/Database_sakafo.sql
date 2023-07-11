@@ -37,6 +37,7 @@ CREATE TABLE regime (
     CHECK(de > 0 AND de < a),
     CHECK(prix > 0)
 );
+ALTER TABLE regime add column types int ;
 
 CREATE TABLE plat (
     id SERIAL PRIMARY KEY,
@@ -64,6 +65,12 @@ CREATE TABLE user_account (
     email VARCHAR(75) NOT NULL UNIQUE
 );
 
+CREATE TABLE user_about (
+    id  SERIAL PRIMARY KEY,
+    id_User     int REFERENCES user_account(id),
+    taille      double precision,
+    poid        double precision
+);
 
 -- money flow (in/out)
 CREATE TABLE user_income_flow (

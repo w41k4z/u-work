@@ -30,6 +30,9 @@ CREATE TABLE regime (
     de INT NOT NULL, -- borne inferieur
     a INT NOT NULL, -- borne superieur
     prix DOUBLE PRECISION NOT NULL, -- prix unitaire/j
+    pourcentage_viande DOUBLE PRECISION NOT NULL,
+    pourcentage_volaille DOUBLE PRECISION NOT NULL,
+    pourcentage_poisson DOUBLE PRECISION NOT NULL,
     CHECK(duree > 0),
     CHECK(de > 0 AND de < a),
     CHECK(prix > 0)
@@ -61,7 +64,6 @@ CREATE TABLE user_account (
     email VARCHAR(75) NOT NULL UNIQUE
 );
 
-CREATE TABLE user_about ();
 
 -- money flow (in/out)
 CREATE TABLE user_income_flow (
@@ -86,3 +88,5 @@ CREATE TABLE pending_validation (
     code VARCHAR(14) REFERENCES code(code),
     state INT NOT NULL -- 1: pending, 11: validated
 );
+
+CREATE TABLE user_about ();

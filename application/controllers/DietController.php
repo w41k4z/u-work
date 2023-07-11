@@ -17,10 +17,16 @@ class DietController extends CI_Controller
         );
         $this->load->view('template/BasePage', $data);
     }
+
     public function index()
     {
 
-        $this->viewer('regime/insertion', []);
+        $this->viewer('regime/regime', []);
+    }
+
+    public function page($page)
+    {
+        $this->viewer('regime/' . $page, []);
     }
 
     public function new_diet()
@@ -31,16 +37,19 @@ class DietController extends CI_Controller
         $debut = $this->input->post('debut');
         $fin = $this->input->post('fin');
         $duree = $this->input->post('duree');
+        $p_viande = $this->input->post('p_viande');
+        $p_poisson = $this->input->post('p_poisson');
+        $p_volaille = $this->input->post('p_volaille');
 
         // creating new diet
-        $diet_id = $this->DietModel->new_diet($diet_name, $categorie,$duree,$debut,$fin,$prix);
+        $diet_id = $this->DietModel->new_diet($diet_name, $categorie, $duree, $debut, $fin, $prix, $p_viande, $p_poisson, $p_volaille);
         // inserting diet details
         // var_dump($diet_id);
         $components = $this->input->post('regimeDetail');
         $components = json_decode(str_replace("'", "", $components));
-        for($i = 0; $i < count($components); $i++) {
+        for ($i = 0; $i < count($components); $i++) {
             // var_dump($components[$i]);
-            $this->DietModel->new_diet_detail($diet_id, $components[$i]->jour,$components[$i]->matin,$components[$i]->midi,$components[$i]->soir,$components[$i]->activites);
+            $this->DietModel->new_diet_detail($diet_id, $components[$i]->jour, $components[$i]->matin, $components[$i]->midi, $components[$i]->soir, $components[$i]->activites);
         }
     }
 

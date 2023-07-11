@@ -3,25 +3,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class DietModel extends CI_Model
 {
-    public function selectPlat(){
+    public function selectPlat()
+    {
         $data = array();
         $sql = "select * from plat";
         $query = $this->db->query($sql);
-        foreach($query->result_array() as $row){
-            $data [] = $row;
+        foreach ($query->result_array() as $row) {
+            $data[] = $row;
         }
         return $data;
     }
-    public function selectCategorieRegime(){
+    public function selectCategorieRegime()
+    {
         $data = array();
         $sql = "select * from categorie_regime";
         $query = $this->db->query($sql);
-        foreach($query->result_array() as $row){
-            $data [] = $row;
+        foreach ($query->result_array() as $row) {
+            $data[] = $row;
         }
         return $data;
     }
-    public function new_diet($name, $categorie,$duree,$debut,$fin,$prix)
+    public function new_diet($name, $categorie, $duree, $debut, $fin, $prix, $p_viande, $p_poisson, $p_volaille)
     {
         /* id | nom | id_categorie | duree | de | a | prix */
         $data = array();
@@ -32,10 +34,13 @@ class DietModel extends CI_Model
         $data['de'] = $debut;
         $data['a'] = $fin;
         $data['prix'] = $prix;
+        $data['pourcentage_viande'] = $p_viande;
+        $data['pourcentage_poisson'] = $p_poisson;
+        $data['pourcentage_volaille'] = $p_volaille;
         $this->db->insert('regime', $data);
         return $this->db->insert_id();
     }
-    public function new_diet_detail($diet_id, $jour,$id_plat_matin,$id_plat_midi,$id_plat_soir,$id_entrainement)
+    public function new_diet_detail($diet_id, $jour, $id_plat_matin, $id_plat_midi, $id_plat_soir, $id_entrainement)
     {
         $data = array();
         $data['id_regime'] = $diet_id;

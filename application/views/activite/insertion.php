@@ -37,7 +37,7 @@
                                 <div>
                                     <label for="activitySelection" class="col-form-label">Activite</label>
                                     <div class="row align-items-center px-3" id="activities0">
-                                        <select name="activites[]" class="form-control form-control-lg col-6">
+                                        <select name="activites[]" class="form-control form-control-lg col-5">
                                             <?php for ($i = 0; $i < count($activities); $i++) { ?>
                                             <option value="<?= $activities[$i]->id ?>"><?= $activities[$i]->nom ?>
                                             </option>
@@ -79,7 +79,7 @@ function addActivity() {
     container.setAttribute("id", "activities" + ++index);
 
     let select = document.createElement("select");
-    select.classList.add("form-control", "form-control-lg", "col-6");
+    select.classList.add("form-control", "form-control-lg", "col-5");
     select.setAttribute("name", "activites[]");
 
     for (let activity of activities) {

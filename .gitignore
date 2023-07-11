@@ -7,9 +7,12 @@
 !*/cache/.htaccess
 
 system/
+Template/
+time-Sheet/
 
 #codeigniter 3
 application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 /vendor/
+time-Sheet/time_sheet.xlsx

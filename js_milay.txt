@@ -1,0 +1,78 @@
+<script>
+        function addDetail() {
+            let i = index++;
+
+            let div = document.getElementById("detail");
+
+            let iThHourlyTier = document.createElement("div");
+            iThHourlyTier.classList.add("col-auto", "col-md-4");
+            let input1 = document.createElement("input");
+            input1.classList.add("form-control");
+            input1.setAttribute("type", "number");
+            input1.setAttribute("name", "hourlyTiers[]");
+
+            iThHourlyTier.appendChild(input1);
+
+            let fromTime = document.createElement("div");
+            fromTime.classList.add("col-auto", "col-md-4");
+            let input2 = document.createElement("input");
+            input2.classList.add("form-control");
+            input2.setAttribute("type", "time");
+            input2.setAttribute("name", "fromTimes[]");
+            input2.setAttribute("step", "1");
+
+            fromTime.appendChild(input2);
+
+            let toTime = document.createElement("div");
+            toTime.classList.add("col-auto", "col-md-4");
+            let input3 = document.createElement("input");
+            input3.classList.add("form-control");
+            input3.setAttribute("type", "time");
+            input3.setAttribute("name", "toTimes[]");
+            input3.setAttribute("step", "1");
+
+            toTime.appendChild(input3);
+
+            let national = document.createElement("div");
+            national.classList.add("col-auto", "col-md-4");
+            let input4 = document.createElement("input");
+            input4.classList.add("form-control");
+            input4.setAttribute("type", "number");
+            input4.setAttribute("name", "nationals[]");
+            input4.setAttribute("step", "0.1");
+
+            national.appendChild(input4);
+
+            let international = document.createElement("div");
+            international.classList.add("col-auto", "col-md-4");
+            let input5 = document.createElement("input");
+            input5.classList.add("form-control");
+            input5.setAttribute("type", "number");
+            input5.setAttribute("name", "internationals[]");
+            input5.setAttribute("step", "0.1");
+
+            international.appendChild(input5);
+
+            let currency = document.createElement("div");
+            currency.classList.add("col-auto", "col-md-4");
+            let input6 = document.createElement("select");
+            input6.classList.add("form-select");
+            input6.setAttribute("name", "currencies[]");
+
+            for(let cur of allCurrencies) {
+                let option = document.createElement("option");
+                option.setAttribute("value", cur.currency);
+                option.innerHTML = cur.label;
+                input6.appendChild(option);
+            }
+
+            currency.appendChild(input6);
+
+            div.appendChild(iThHourlyTier);
+            div.appendChild(fromTime);
+            div.appendChild(toTime);
+            div.appendChild(national);
+            div.appendChild(international);
+            div.appendChild(currency);
+        }
+    </script>

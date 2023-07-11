@@ -71,9 +71,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $dev_database = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'walker',
-	'password' => 'w41k4z!',
-	'database' => 'test',
+	'username' => 'rezime',
+	'password' => 'sakafo1234!',
+	'database' => 'rezime',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -91,10 +91,10 @@ $dev_database = array(
 );
 $prod_database = array(
 	'dsn'	=> '',
-	'hostname' => 'postgresql-u-work.alwaysdata.net',
-	'username' => 'u-work',
-	'password' => 'w41k4z!',
-	'database' => 'u-work_project_db',
+	'hostname' => 'postgresql-i-rezime-db.alwaysdata.net',
+	'username' => 'i-rezime-db',
+	'password' => 'sakafo1234!',
+	'database' => 'i-rezime-db_sakafo',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

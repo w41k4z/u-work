@@ -9,11 +9,9 @@
 </head>
 
 <body>
-    <h1 class="text-success"><?= $session ?></h1>
+    <h1 class="text-success"></h1>
     <ul>
-        <?php for ($i = 0; $i < count($students); $i++) { ?>
-        <li><?= $students[$i]['name']; ?></li>
-        <?php } ?>
+        <li><?= $composants[1] ?></li>
     </ul>
 </body>
 

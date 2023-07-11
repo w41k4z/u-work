@@ -21,12 +21,17 @@ class DietController extends CI_Controller
     public function index()
     {
 
-        $this->viewer('regime/regime', []);
+        redirect('DietController/page/regime');
     }
 
     public function page($page)
     {
-        $this->viewer('regime/' . $page, []);
+        $data = array();
+        $data['diets'] = $this->DietModel->all_diet();
+        $data['diet_category'] = $this->DietModel->all_diet_category();
+        $data['plats'] = $this->DietModel->all_plat();
+        $data['trainings'] = $this->DietModel->all_training();
+        $this->viewer('regime/' . $page, $data);
     }
 
     public function new_diet()
@@ -51,6 +56,12 @@ class DietController extends CI_Controller
             // var_dump($components[$i]);
             $this->DietModel->new_diet_detail($diet_id, $components[$i]->jour, $components[$i]->matin, $components[$i]->midi, $components[$i]->soir, $components[$i]->activites);
         }
+    }
+
+    public function delete($id)
+    {
+        $this->DietModel->remove_diet($id);
+        redirect("DietController");
     }
 
 

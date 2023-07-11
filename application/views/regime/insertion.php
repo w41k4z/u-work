@@ -22,13 +22,6 @@
                                         <input type="number" name="fin" class="form-control" id="exampleInputPassword2"
                                             placeholder="A">
                                     </div>
-                                    <div class="form-group" id="detail">
-                                        <label for="exampleFormControlSelect3">Type</label>
-                                        <select class="form-control form-control-sm" id="categorie" name="categorie">
-                                            <option value="2">Gagner</option>
-                                            <option value="1">Perdre</option>
-                                        </select>
-                                    </div>
 
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect2">Prix</label>
@@ -39,12 +32,14 @@
                                         <div class="form-group col-md-6" id="detail">
                                             <label for="exampleFormControlSelect3">Type</label>
                                             <select class="form-control form-control-sm" id="type" name="type">
-                                                <option value="1">Dinamique</option>
-                                                <option value="2">Basique</option>
+                                                <?php for ($i = 0; $i < count($diet_category); $i++) { ?>
+                                                <option value="<?= $diet_category[$i]->id ?>">
+                                                    <?= $diet_category[$i]->categorie ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="exampleFormControlSelect1">Duree</label>
+                                            <label for="exampleFormControlSelect1">Duree (hebdomadaire)</label>
                                             <input type="text" name="duree" class="form-control form-control-sm"
                                                 id="exampleInputPassword2" placeholder="Insérer duree">
                                         </div>
@@ -56,11 +51,12 @@
                                                 placeholder="Insérer régime">
                                         </div>
                                         <div class="col-md-6 form-group" id="detail">
-                                            <label for="exampleFormControlSelect3">Activites</label>
+                                            <label for="exampleFormControlSelect3">Niveau activite</label>
                                             <select class="form-control form-control-lg" id="activites">
-                                                <option value="1">Difficile</option>
-                                                <option value="2">Moyen</option>
-                                                <option value="2">Facile</option>
+                                                <?php for ($i = 0; $i < count($trainings); $i++) { ?>
+                                                <option value="<?= $trainings[$i]->id ?>"><?= $trainings[$i]->niveau ?>
+                                                </option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
@@ -69,27 +65,30 @@
                                         <div class="col-md-4">
                                             <label for="exampleFormControlSelect3">Matin</label>
                                             <select class="form-control form-control-sm" id="matin">
-                                                <option value="1">Ovy</option>
-                                                <option value="2">Karoty</option>
+                                                <?php for ($i = 0; $i < count($plats); $i++) { ?>
+                                                <option value="<?= $plats[$i]->id ?>"><?= $plats[$i]->nom ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="exampleFormControlSelect3">Midi</label>
                                             <select class="form-control form-control-sm" id="midi">
-                                                <option value="1">Ovy</option>
-                                                <option value="2">Karoty</option>
+                                                <?php for ($i = 0; $i < count($plats); $i++) { ?>
+                                                <option value="<?= $plats[$i]->id ?>"><?= $plats[$i]->nom ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="exampleFormControlSelect3">Soir</label>
                                             <select class="form-control form-control-sm" id="soir">
-                                                <option value="1">Ovy</option>
-                                                <option value="2">Karoty</option>
+                                                <?php for ($i = 0; $i < count($plats); $i++) { ?>
+                                                <option value="<?= $plats[$i]->id ?>"><?= $plats[$i]->nom ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
-                                    <label for="exampleFormControlSelect9">Pourcentage</label>
-                                    <div class="row">
+                                    <label for="exampleFormControlSelect9" class="mt-4">Pourcentage</label>
+                                    <div class="row mb-3">
                                         <div class="col-md-4">
                                             <label for="exampleFormControlSelect10">Viande</label>
                                             <input type="number" class="form-control" name="p_viande" id="">
@@ -113,25 +112,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 grid-margin">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Liste Composition</h4>
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Jours</th>
-                                        <th>Matin</th>
-                                        <th>Midi</th>
-                                        <th>Soir</th>
-                                        <th>Activites</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbody"></tbody>
-                            </table>
-                        </div>
+        </div>
+        <div class="col-md-6 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Liste Composition</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Jours</th>
+                                    <th>Matin</th>
+                                    <th>Midi</th>
+                                    <th>Soir</th>
+                                    <th>Activites</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody"></tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -208,7 +207,9 @@ function terminerDetail() {
 
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                console_log("hehe boyyy");
+                alert('Ok')
+            } else {
+                alert('Error, please inspect');
             }
         }
 

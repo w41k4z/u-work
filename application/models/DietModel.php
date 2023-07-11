@@ -52,4 +52,42 @@ class DietModel extends CI_Model
         $this->db->insert('detail_regime', $data);
         return $this->db->insert_id();
     }
+
+    public function all_diet()
+    {
+        $diets = $this->db->get('regimes')->result();
+        foreach ($diets as $diet) {
+            $diet->details_regimes = $this->all_diet_detail($diet->id);
+        }
+        return $diets;
+    }
+
+    public function all_diet_detail($diet_id)
+    {
+        return $this->db->get_where('details_regimes', array('id_regime' => $diet_id))->result();
+    }
+
+    public function all_diet_category()
+    {
+        return $this->db->get('categorie_regime')->result();
+    }
+
+    public function all_plat()
+    {
+        return $this->db->get('plat')->result();
+    }
+
+    public function all_training()
+    {
+        return $this->db->get('entrainement')->result();
+    }
+
+    public function remove_diet($id)
+    {
+        $this->db->where('id_regime', $id);
+        $this->db->delete('detail_regime');
+
+        $this->db->where('id', $id);
+        $this->db->delete('regime');
+    }
 }

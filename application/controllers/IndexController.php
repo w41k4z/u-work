@@ -16,4 +16,8 @@ class IndexController extends CI_Controller
 	{
 		$this->viewer('dashboard', []);
 	}
+
+	public function login()
+	{
+	}
 }

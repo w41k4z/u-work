@@ -11,4 +11,14 @@ Insert into plat values (default,'Vary Soa',0),(default,'Dite',0),(default,'Cafe
 (default,'Pate',5),(default,'Vary',5),(default,'Mofo sy Atody',5),(default,'Anana sy Voanjo',5),(default,'Sosisy',5),
 (default,'Soupe',10),(default,'Vary @ anana',10),(default,'Tsock',10),(default,'Silamangany',10),(default,'Spagethi',10);
 
+
+
+
 INSERT INTO entrainement values (default,0),(default,11),(default,21);
+
+INSERT into activite values (default,'Pompe'),(default,'Marche a pied'),(default,'Pont');
+
+INSERT into activite_entrainement values 
+    (default,2,1,5),(default,2,2,10),(default,2,3,7),
+    (default,1,1,5),(default,1,2,5),(default,1,3,6),
+    (default,3,1,10),(default,3,2,15),(default,3,3,12),

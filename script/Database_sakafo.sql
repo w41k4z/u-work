@@ -34,6 +34,7 @@ CREATE TABLE regime (
     CHECK(de > 0 AND de < a),
     CHECK(prix > 0)
 );
+ALTER TABLE regime add column types int ;
 
 CREATE TABLE plat (
     id SERIAL PRIMARY KEY,

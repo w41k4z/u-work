@@ -20,12 +20,20 @@
                                             <input type="number" name="fin" class="form-control" id="exampleInputPassword2" placeholder="Fin Poids">
                                         </div>
                                     </div>
+                                <div class="form-group" id="detail">
+                                    <label for="exampleFormControlSelect3">Type</label>
+                                    <select class="form-control form-control-sm" id="categorie" name="categorie">
+                                        <option value="2">Gagner</option>
+                                        <option value="1">Perdre</option>
+                                    </select>
+                                </div>
+                                    
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect2">Prix</label>
                                     <input type="text" name="prix" class="form-control" id="exampleInputPassword2" placeholder="Insérer Prix">
                                 </div>
                                 <div class="form-group" id="detail">
-                                    <label for="exampleFormControlSelect3">Type</label>
+                                    <label for="exampleFormControlSelect3">Categorie</label>
                                     <select class="form-control form-control-sm" id="type" name="type">
                                         <option value="1">Dinamique</option>
                                         <option value="2">Basique</option>

@@ -21,7 +21,7 @@ class DietModel extends CI_Model
         }
         return $data;
     }
-    public function new_diet($name, $categorie,$duree,$debut,$fin,$prix)
+    public function new_diet($name, $categorie,$duree,$debut,$fin,$prix,$types)
     {
         /* id | nom | id_categorie | duree | de | a | prix */
         $data = array();
@@ -32,6 +32,7 @@ class DietModel extends CI_Model
         $data['de'] = $debut;
         $data['a'] = $fin;
         $data['prix'] = $prix;
+        $data['types'] = $types;
         $this->db->insert('regime', $data);
         return $this->db->insert_id();
     }

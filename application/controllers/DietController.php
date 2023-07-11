@@ -31,9 +31,9 @@ class DietController extends CI_Controller
         $debut = $this->input->post('debut');
         $fin = $this->input->post('fin');
         $duree = $this->input->post('duree');
-
+        $types = $this->input->post('categorie');
         // creating new diet
-        $diet_id = $this->DietModel->new_diet($diet_name, $categorie,$duree,$debut,$fin,$prix);
+        $diet_id = $this->DietModel->new_diet($diet_name, $categorie,$duree,$debut,$fin,$prix,$categorie);
         // inserting diet details
         // var_dump($diet_id);
         $components = $this->input->post('regimeDetail');

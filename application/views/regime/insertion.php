@@ -9,20 +9,24 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Régime</label>
-                                    <input type="text" name="regime" class="form-control" id="exampleInputPassword2" placeholder="Insérer régime">
+                                    <input type="text" name="regime" class="form-control" id="exampleInputPassword2"
+                                        placeholder="Insérer régime">
                                 </div>
                                 <label for="exampleFormControlSelect2">Intervalle de Poids </label>
                                 <div class="row">
                                     <div class="col-md-6 grid-margin">
-                                        <input type="number" name="debut" class="form-control" id="exampleInputPassword2" placeholder="De">
+                                        <input type="number" name="debut" class="form-control"
+                                            id="exampleInputPassword2" placeholder="De">
                                     </div>
                                     <div class="col-md-6 grid-margin">
-                                        <input type="number" name="fin" class="form-control" id="exampleInputPassword2" placeholder="A">
+                                        <input type="number" name="fin" class="form-control" id="exampleInputPassword2"
+                                            placeholder="A">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect2">Prix</label>
-                                    <input type="number" name="prix" class="form-control" id="exampleInputPassword2" placeholder="Insérer Prix">
+                                    <input type="number" name="prix" class="form-control" id="exampleInputPassword2"
+                                        placeholder="Insérer Prix">
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6" id="detail">
@@ -34,7 +38,8 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="exampleFormControlSelect1">Duree</label>
-                                        <input type="text" name="duree" class="form-control form-control-sm" id="exampleInputPassword2" placeholder="Insérer duree">
+                                        <input type="text" name="duree" class="form-control form-control-sm"
+                                            id="exampleInputPassword2" placeholder="Insérer duree">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -79,7 +84,7 @@
 
                             <div class="d-flex justify-content-end">
                                 <a class="btn btn-primary mr-2 text-white" onclick="addDetail()">Ajouter</a>
-                                <a class="btn btn-dark text-white" onclick="terminerDetail()">Terminer</a>
+                                <a class="btn btn-success text-white" onclick="terminerDetail()">Terminer</a>
                             </div>
                         </form>
                     </div>
@@ -98,11 +103,10 @@
                                         <th>Midi</th>
                                         <th>Soir</th>
                                         <th>Activites</th>
-                                        <th>Type</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
-                                <tbody id="tbody">
-                                </tbody>
+                                <tbody id="tbody"></tbody>
                             </table>
                         </div>
                     </div>
@@ -112,33 +116,48 @@
     </div>
 </div>
 <script>
-    var regimeDetail = [];
+var regimeDetail = [];
 
-    function addDetail() {
-        let jour = document.getElementById("jour");
-        let activites = document.getElementById("activites");
-        let soir = document.getElementById("soir");
-        let midi = document.getElementById("midi");
-        let matin = document.getElementById("matin");
-        let tbody = document.getElementById("tbody");
-        let tr = document.createElement("tr");
-        let td1 = document.createElement("td");
-        let td2 = document.createElement("td");
-        let td3 = document.createElement("td");
-        let td4 = document.createElement("td");
-        let td5 = document.createElement("td");
-        let td6 = document.createElement("td");
-        td1.innerText = jour.value;
-        td5.innerText = activites.options[activites.selectedIndex].innerText;
-        td4.innerText = soir.options[soir.selectedIndex].innerText;
-        td3.innerText = midi.options[midi.selectedIndex].innerText;
-        td2.innerText = matin.options[matin.selectedIndex].innerText;
-        let object = {
-            'jour': jour.value,
-            'activites': activites.value,
-            'soir': soir.value,
-            'midi': midi.value,
-            'matin': matin.value
+function addDetail() {
+    let jour = document.getElementById("jour");
+    let activites = document.getElementById("activites");
+    let soir = document.getElementById("soir");
+    let midi = document.getElementById("midi");
+    let matin = document.getElementById("matin");
+    let tbody = document.getElementById("tbody");
+    let tr = document.createElement("tr");
+    let td1 = document.createElement("td");
+    let td2 = document.createElement("td");
+    let td3 = document.createElement("td");
+    let td4 = document.createElement("td");
+    let td5 = document.createElement("td");
+    let td6 = document.createElement("td");
+    let day = jour.value;
+    td1.innerText = jour.value;
+    td2.innerText = matin.options[matin.selectedIndex].innerText;
+    td3.innerText = midi.options[midi.selectedIndex].innerText;
+    td4.innerText = soir.options[soir.selectedIndex].innerText;
+    td5.innerText = activites.options[activites.selectedIndex].innerText;
+    let removeButton = document.createElement("button");
+    removeButton.classList.add("btn", "btn-close");
+    removeButton.addEventListener('click', function() {
+        regimeDetail = regimeDetail.filter(regime => regime.jour != day);
+        tr.remove();
+    })
+    td6.appendChild(removeButton);
+    let object = {
+        'jour': jour.value,
+        'activites': activites.value,
+        'soir': soir.value,
+        'midi': midi.value,
+        'matin': matin.value
+    }
+    if (jour.value) {
+        for (let i = 0; i < regimeDetail.length; i++) {
+            if (regimeDetail[i].jour == jour.value) {
+                alert("Ce jour existe deja");
+                return;
+            }
         }
         regimeDetail.push(object);
         tr.appendChild(td1);
@@ -146,37 +165,33 @@
         tr.appendChild(td3);
         tr.appendChild(td4);
         tr.appendChild(td5);
+        tr.appendChild(td6);
         tbody.appendChild(tr);
+    } else {
+        alert("N'oublier pas le jour");
     }
+}
 
-    function terminerDetail() {
-        console.log("ato za");
-        let regime = JSON.stringify(regimeDetail);
-        let htmlForm = document.getElementById("formulaire");
-        let formData = new FormData(htmlForm)
-        formData.append('regimeDetail', regime)
+function terminerDetail() {
+    console.log("ato za");
+    let regime = JSON.stringify(regimeDetail);
+    let htmlForm = document.getElementById("formulaire");
+    let formData = new FormData(htmlForm)
+    formData.append('regimeDetail', regime)
 
-        let xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
 
-        xhr.onreadystatechange = () => {
+    xhr.onreadystatechange = () => {
 
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    console_log("hehe boyyy");
-                }
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                console_log("hehe boyyy");
             }
+        }
 
-        };
+    };
 
-        xhr.open('POST', "<?php echo base_url('index.php/DietController/new_diet') ?>");
-        xhr.send(formData);
-        // fetch(, { 
-        //     method: 'POST',
-        //     body: data 
-        // }).then(() => {
-        //     alert("lasa e");
-        // }).catch(error => {
-        //     alert(error)
-        // })
-    }
+    xhr.open('POST', "<?php echo base_url('index.php/DietController/new_diet') ?>");
+    xhr.send(formData);
+}
 </script>

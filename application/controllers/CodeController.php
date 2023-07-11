@@ -25,13 +25,8 @@ class CodeController extends CI_Controller
         $this->viewer('validation/verification', $data);
     }
 
-    public function validation()
+    public function validation($pending_validation_id)
     {
-        $code = $this->input->post('code');
-        // Check if code is valide
-        $valide = $this->CodeModel->code_valide($code);
-        // update code 
-        $valide = $this->CodeModel->code_valider($code);
-        // loading view or redirecting
+        $this->CodeModel->validate($pending_validation_id);
     }
 }

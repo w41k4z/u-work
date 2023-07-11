@@ -51,3 +51,38 @@ CREATE TABLE detail_regime (
     id_plat_soir INT REFERENCES plat(id) NOT NULL,
     id_entrainement INT REFERENCES entrainement(id) NOT NULL
 );
+
+CREATE TABLE user_account (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    first_name VARCHAR(50),
+    birthdate DATE NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    email VARCHAR(75) NOT NULL UNIQUE
+);
+
+CREATE TABLE user_about ();
+
+-- money flow (in/out)
+CREATE TABLE user_income_flow (
+    id SERIAL PRIMARY KEY,
+    user_account_id INT REFERENCES user_account(id) NOT NULL,
+    action_date TIMESTAMP NOT NULL,
+    amount DOUBLE PRECISION NOT NULL 
+);
+
+CREATE TABLE code (
+    code VARCHAR(14) PRIMARY KEY,
+    value DOUBLE PRECISION NOT NULL,
+    state INT NOT NULL, -- 1: valid, 11: expired
+    CHECK(value > 0),
+    CHECK(state > 0)
+);
+
+CREATE TABLE pending_validation (
+    id SERIAL PRIMARY KEY,
+    action_date TIMESTAMP NOT NULL,
+    user_account_id INT REFERENCES user_account(id),
+    code VARCHAR(14) REFERENCES code(code),
+    state INT NOT NULL -- 1: pending, 11: validated
+);

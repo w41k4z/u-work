@@ -20,10 +20,10 @@
 								<tbody>
 									<?php for ($i = 0; $i < count($pending_validations); $i++) { ?>
 										<tr>
-											<td><?= $pending_validations[$i]['user'] ?></td>
-											<td><?= $pending_validations[$i]['code'] ?></td>
+											<td><?= $pending_validations[$i]->user->name ?></td>
+											<td><?= $pending_validations[$i]->code ?></td>
 											<td class="d-flex justify-content-end">
-												<a class="badge badge-warning text-white" href="<?= base_url('index.php/CodeController/validation/' . $pending_validations[$i]['code_id']) ?>">Valider</a>
+												<a class="badge badge-warning text-white" href="<?= base_url('index.php/CodeController/validation/' . $pending_validations[$i]->id) ?>">Valider</a>
 											</td>
 										</tr>
 									<?php } ?>

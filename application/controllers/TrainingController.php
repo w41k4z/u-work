@@ -22,7 +22,40 @@ class TrainingController extends CI_Controller
 	{
 		$data = array();
 		$data['activities'] = $this->TrainingModel->activities();
+		$data['trainings'] = $this->TrainingModel->trainings();
 		$this->viewer('activite/' . $page, $data);
+	}
+
+	public function delete_activity()
+	{
+		$this->TrainingModel->delete_training_activity($this->input->post('id_training_activity'));
+	}
+
+	public function delete_training()
+	{
+		$this->TrainingModel->delete_training($this->input->post('training_id'));
+	}
+
+	public function update_activity()
+	{
+		$training_activity = $this->TrainingModel->get_training_activity_by_id($this->input->post('id_training_activity'));
+		// var_dump($training);
+		$training_data = array(
+			'id' => $this->input->post('id_training_activity'),
+			'id_entrainement' => $training_activity->id_entrainement,
+			'id_activite' => $this->input->post('id_activite'),
+			'quantite' => $this->input->post('quantite')
+		);
+		var_dump($training_data);
+		$this->TrainingModel->update_activity($training_data);
+	}
+
+	public function training_udpate_form($training_id)
+	{
+		$training = $this->TrainingModel->get_training_by_id($training_id);
+		$data = array();
+		$data['training'] = $training;
+		$this->viewer('activite/update', $data);
 	}
 
 	public function new_activity()
@@ -46,6 +79,6 @@ class TrainingController extends CI_Controller
 			$this->TrainingModel->insert_training_activity($training_id, $activities[$i], $quantities[$i]);
 		}
 
-		redirect("TrainingController");
+		redirect("TrainingController/page/training");
 	}
 }

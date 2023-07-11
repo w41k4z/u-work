@@ -2,6 +2,8 @@
 <!-- page-body-wrapper ends -->
 </div>
 <!-- container-scroller -->
+<!-- bootstrap:js -->
+<script src="<?= base_url('assets/lib/bootstrap/js/bootstrap.min.js') ?>"></script>
 <!-- base:js -->
 <script src="<?= base_url('assets/vendors/js/vendor.bundle.base.js') ?>"></script>
 <!-- endinject -->

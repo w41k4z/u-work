@@ -181,13 +181,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url("index.php/IndexController") ?>">
                     <i class="typcn typcn-device-desktop menu-icon"></i>
-                    <span class="menu-title">Dashboard <span class="badge badge-primary ml-3">New</span></span>
+                    <span class="menu-title">Dashboard</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url("index.php/DietController") ?>">
                     <i class="typcn typcn-device-desktop menu-icon"></i>
-                    <span class="menu-title">Regime <span class="badge badge-primary ml-3">New</span></span>
+                    <span class="menu-title">Regime</span>
                 </a>
             </li>
             <li class="nav-item">

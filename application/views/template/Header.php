@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>CelestialUI Admin</title>
+    <!-- bootstrap:css -->
+    <link rel="stylesheet" href="<?= base_url('assets/lib/bootstrap/css/bootstrap.min.css') ?>">
     <!-- base:css -->
     <link rel="stylesheet" href="<?= base_url('assets/vendors/typicons.font/font/typicons.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/vendors/css/vendor.bundle.base.css') ?>">

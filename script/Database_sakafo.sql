@@ -94,5 +94,3 @@ CREATE TABLE pending_validation (
     code VARCHAR(14) REFERENCES code(code),
     state INT NOT NULL -- 1: pending, 11: validated
 );
-
-CREATE TABLE user_about ();
